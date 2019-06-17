@@ -22,12 +22,26 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/base/base",
-      "text": "基础",
-      "iconPath": "iconPath",
-      "selectedIconPath": "selectedIconPath"
-    }]
-  }
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "images/ic_home.png",
+        "selectedIconPath": "images/ic_home_sel.png"
+      },
+        {
+          "pagePath": "pages/base/base",
+          "text": "基础",
+          "iconPath": "images/ic_base.png",
+          "selectedIconPath": "images/ic_base_sel.png"
+        },
+      {
+        "pagePath": "pages/cloud/cloud",
+        "text": "云开发",
+        "iconPath": "images/ic_cloud.png",
+        "selectedIconPath": "images/ic_cloud_sel.png"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }
