@@ -1,1 +1,5 @@
 <view>云开发</view>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onInsertData">插入数据</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onUpdateData">更新数据</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onSearchData">查找数据</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onDeleteData">删除单条数据</button>
