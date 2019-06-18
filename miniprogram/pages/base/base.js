@@ -5,7 +5,7 @@ Page({
    */
   data: {
     msg: "基础",
-    img: "/images/code-cloud-callback-config.png",
+    img: "/images/code-func-sum.png",
     pokemons: ["妙蛙花", "喷火龙", "水箭龟"],
     students: [{
       name: "Jack",

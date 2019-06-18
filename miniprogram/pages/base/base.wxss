@@ -1,0 +1,6 @@
+@import '../../style/common.wxss';
+
+.box {
+  width: 300rpx;
+  background: #ccc;
+}

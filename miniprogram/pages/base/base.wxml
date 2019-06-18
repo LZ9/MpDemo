@@ -1,6 +1,6 @@
 <view>{{msg}}</view>
-<image src="{{img}}"></image>
-<view wx:for="{{pokemons}}" wx:key="index">
+<image class="banner" src="{{img}}" mode="aspectFit"></image>
+<view class="box" wx:for="{{pokemons}}" wx:key="index">
   {{index}} --- {{item}}
 </view>
 <view wx:for="{{students}}" wx:key="index">
