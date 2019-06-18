@@ -1,0 +1,8 @@
+<view>{{msg}}</view>
+<image src="{{img}}"></image>
+<view wx:for="{{pokemons}}" wx:key="index">
+  {{index}} --- {{item}}
+</view>
+<view wx:for="{{students}}" wx:key="index">
+  {{item.name}} --- {{item.age}}
+</view>

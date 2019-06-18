@@ -22,6 +22,8 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#09bb07",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -29,12 +31,12 @@
         "iconPath": "images/ic_home.png",
         "selectedIconPath": "images/ic_home_sel.png"
       },
-        {
-          "pagePath": "pages/base/base",
-          "text": "基础",
-          "iconPath": "images/ic_base.png",
-          "selectedIconPath": "images/ic_base_sel.png"
-        },
+      {
+        "pagePath": "pages/base/base",
+        "text": "基础",
+        "iconPath": "images/ic_base.png",
+        "selectedIconPath": "images/ic_base_sel.png"
+      },
       {
         "pagePath": "pages/cloud/cloud",
         "text": "云开发",
