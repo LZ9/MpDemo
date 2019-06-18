@@ -1,5 +1,8 @@
-<view>云开发</view>
+<view class="titleStyle">云数据库</view>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onInsertData">插入数据</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onUpdateData">更新数据</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onSearchData">查找数据</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onDeleteData">删除单条数据</button>
+
+<view class="titleStyle">云函数</view>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onClickSum">调用云函数sum</button>

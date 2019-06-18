@@ -40,7 +40,7 @@ Page({
       }).then(res => {
         console.log(res);
       }).catch(err => {
-        console.log(error);
+        console.log(err);
       });
   },
 
@@ -53,7 +53,7 @@ Page({
       }).then(res => {
         console.log(res);
       }).catch(err => {
-        console.log(error);
+        console.log(err);
       });
   },
 
@@ -65,7 +65,7 @@ Page({
       .then(res => {
         console.log(res);
       }).catch(err => {
-        console.log(error);
+        console.log(err);
       });
   },
 
@@ -75,15 +75,30 @@ Page({
       .then(res => {
         console.log(res);
       }).catch(err => {
-        console.log(error);
+        console.log(err);
       });
+  },
+
+
+  onClickSum: function() {
+    wx.cloud.callFunction({
+      name: 'sum',
+      data: {
+        a: 2,
+        b: 3,
+      }
+    }).then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    
   },
 
   /**
