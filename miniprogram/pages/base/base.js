@@ -14,6 +14,7 @@ Page({
       name: "Park",
       age: 21
     }],
+    isLogin: true,
   },
 
   /**

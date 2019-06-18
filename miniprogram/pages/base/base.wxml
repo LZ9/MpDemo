@@ -6,3 +6,7 @@
 <view wx:for="{{students}}" wx:key="index">
   {{item.name}} --- {{item.age}}
 </view>
+<view wx:if="{{isLogin}}">张三</view>
+<view wx:else>请登录</view>
+
+<view hidden="{{!isLogin}}">hidden</view>
