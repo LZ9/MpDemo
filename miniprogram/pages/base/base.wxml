@@ -1,6 +1,6 @@
 <view>{{msg}}</view>
 <image class="banner" src="{{img}}" mode="aspectFit"></image>
-<view class="box" wx:for="{{pokemons}}" wx:key="index">
+<view wx:for="{{pokemons}}" wx:key="index">
   {{index}} --- {{item}}
 </view>
 <view wx:for="{{students}}" wx:key="index">
@@ -10,3 +10,11 @@
 <view wx:else>请登录</view>
 
 <view hidden="{{!isLogin}}">hidden</view>
+
+<!-- catchtap阻止事件向下传递，bindtap不阻止事件传递 -->
+<view class="box" catchtap="onClickBox" data-id="1234">
+  <view class="child" catchtap="onClickChild"></view>
+</view>
+
+<button type="primary" size="mini" bindtap="onClickItem">点我+1</button>
+<view>{{count}}</view>

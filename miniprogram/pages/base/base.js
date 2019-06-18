@@ -15,6 +15,23 @@ Page({
       age: 21
     }],
     isLogin: true,
+    count: 0,
+  },
+
+  onClickItem: function() {
+    this.setData({
+      count: this.data.count + 1
+    })
+  },
+
+  onClickBox: function(event) {
+    console.log("click box");
+    console.log(event);
+    console.log(event.target.dataset.id);
+  },
+
+  onClickChild: function() {
+    console.log("click child");
   },
 
   /**
