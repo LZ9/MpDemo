@@ -84,7 +84,7 @@ Page({
     wx.cloud.callFunction({
       name: 'sum',
       data: {
-        a: 2,
+        a: 9,
         b: 3,
       }
     }).then(res => {
@@ -94,11 +94,31 @@ Page({
     });
   },
 
+  onGetOpenId: function() {
+    wx.cloud.callFunction({
+      name: 'login',
+    }).then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.log(err);
+    });
+  },
+
+  onBatchDelete: function() {
+    wx.cloud.callFunction({
+      name: 'batchDelete',
+    }).then(res => {
+      console.log(res);
+    }).catch(err => {
+      console.error(err);
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+
   },
 
   /**

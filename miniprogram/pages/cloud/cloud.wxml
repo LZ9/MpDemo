@@ -6,3 +6,5 @@
 
 <view class="titleStyle">云函数</view>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onClickSum">调用云函数sum</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onGetOpenId">获取当前用户openid</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onBatchDelete">批量删除数据</button>
