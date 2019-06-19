@@ -10,7 +10,7 @@
 	},
 	"appid": "wx5ae829f758be7c25",
 	"projectname": "QiYue",
-	"libVersion": "2.2.5",
+	"libVersion": "2.7.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",

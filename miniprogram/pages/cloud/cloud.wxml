@@ -8,3 +8,11 @@
 <button class="buttonStyle" type="primary" size="mini" catchtap="onClickSum">调用云函数sum</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onGetOpenId">获取当前用户openid</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onBatchDelete">批量删除数据</button>
+
+<view class="titleStyle">云存储</view>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onUploadPic">上传图片</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onGetFile">展示图片</button>
+<block wx:for="{{images}}" wx:key="index">
+  <image src="{{item.fileID}}" mode="aspectFit"></image>
+  <button class="buttonStyle" type="primary" size="mini" catchtap="onDownloadFile" data-fileid="{{item.fileID}}">文件下载</button>
+</block>
