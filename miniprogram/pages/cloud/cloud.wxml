@@ -16,3 +16,11 @@
   <image src="{{item.fileID}}" mode="aspectFit"></image>
   <button class="buttonStyle" type="primary" size="mini" catchtap="onDownloadFile" data-fileid="{{item.fileID}}">文件下载</button>
 </block>
+
+<view class="titleStyle">Promise调用</view>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseSingle">单个异步调用</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseMultiple">多个异步调用</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseObj">作为对象入参调用</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseThen">then调用测试</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseAll">all调用测试</button>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseRace">race调用测试</button>

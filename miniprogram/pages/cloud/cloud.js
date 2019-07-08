@@ -223,6 +223,170 @@ Page({
     })
   },
 
+  onPromiseSingle: function() {
+    console.log("开始执行")
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Hello")
+      }, 2000)
+    }).then(res => {
+      console.log(res + " World")
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+
+  onPromiseMultiple: function() {
+    console.log("开始执行")
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Hello")
+        }, 2000)
+      })
+      .then(res => {
+        console.log(res)
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("World")
+          }, 2000)
+        })
+      })
+      .then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
+  },
+
+  onPromiseObj: function() {
+    console.log("开始执行")
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Hello World")
+        console.log("promise 执行完毕")
+      }, 1000)
+    })
+
+    setTimeout(() => {
+      promise.then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }, 3000)
+  },
+
+  onPromiseThen: function() {
+    console.log("开始执行")
+    new Promise((resolve, reject) => {
+        console.log("STEP 1")
+        setTimeout(() => {
+          resolve(100)
+        }, 1000)
+      })
+      .then(res => {
+        return new Promise((resolve, reject) => {
+            console.log("STEP 1-1")
+            setTimeout(() => {
+              resolve(110)
+            }, 1000)
+          })
+          .then(res => {
+            console.log("STEP 1-2")
+            return res
+          })
+          .then(res => {
+            console.log("STEP 1-3")
+            return res
+          })
+      })
+      .then(res => {
+        console.log(res)
+        console.log("STEP 2")
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+
+  onPromiseAll: function() {
+    console.log("开始执行")
+    Promise.all([1, 2, 3])
+      .then(all => {
+        console.log("1 : ", all)
+        return Promise.all([function() {
+          console.log("ooxx")
+        }, "xxoo", false])
+      })
+      .then(all => {
+        console.log("2 : ", all)
+        let p1 = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("i am p1")
+          }, 1500)
+        })
+        let p2 = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("i am p2")
+          }, 1000)
+        })
+        return Promise.all([p1, p2])
+      })
+      .then(all => {
+        console.log("3 : ", all)
+        let p1 = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("i am p1")
+          }, 1500)
+        })
+        let p2 = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject("i am p2")
+          }, 1000)
+        })
+        let p3 = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject("i am p3")
+          }, 3000)
+        })
+        return Promise.all([p1, p2, p3])
+      })
+      .then(res => {
+        console.log("all : ", all)
+      })
+      .catch(err => {
+        console.log("catch : ", err)
+      })
+  },
+
+  onPromiseRace: function() {
+    console.log("开始执行")
+    let p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("i am p1")
+      }, 1500)
+    })
+    let p2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("i am p2")
+      }, 1000)
+    })
+    let p3 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("i am p3")
+      }, 3000)
+    })
+
+    Promise.race([p1, p2, p3])
+      .then(res => {
+        console.log("race : ", res)
+      })
+      .catch(err => {
+        console.log("catch : ", err)
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
