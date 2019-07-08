@@ -2,7 +2,7 @@
 //   env: "qiyue-0haeb"
 // }); // 初始化数据库
 const dbTest = wx.cloud.database({
-  env: "qiyue-test-7t6yq"
+  env: "qiyue-0haeb"
 });
 
 
@@ -19,64 +19,87 @@ Page({
   },
 
   onInsertData: function() {
-    // dbTest.collection("user").add({
-    //   data: {
-    //     name: "Park",
-    //     age: 25,
-    //   },
-    //   success: res => { //箭头函数
-    //     console.log(res);
-    //   },
-    //   fail: error => { //箭头函数
-    //     console.log(error);
-    //   }
-    // });
-
-    dbTest.collection("user")
-      .add({
-        data: {
-          name: "Jack",
-          age: 20,
-        },
-      }).then(res => {
+    dbTest.collection("club_table")
+      .where({
+        type: 3
+      }).get()
+      .then(res => {
         console.log(res);
+        if (!res.data || res.data.length == 0) {
+          return dbTest.collection("club_table")
+            .add({
+              data: {
+                name: "蓝波美利达车队",
+                type: 3,
+              },
+            })
+        }
+        throw Error("data is already exist")
+      })
+      .then(res => {
+        console.log("res : ", res);
       }).catch(err => {
-        console.log(err);
+        console.log("catch : ", err);
       });
   },
 
   onUpdateData: function() {
-    dbTest.collection("user").doc("08560c9e5d0856f50374b1bc44965516")
-      .update({
-        data: {
-          age: 18
-        }
-      }).then(res => {
+    dbTest.collection("club_table")
+      .where({
+        type: 3
+      }).get()
+      .then(res => {
         console.log(res);
+        if (!res.data || res.data.length == 0) {
+          throw Error("data is empty")
+        }
+        var item = res.data[0]
+        return dbTest.collection("club_table")
+          .doc(item._id)
+          .update({
+            data: {
+              name: "移动之星车队"
+            }
+          })
+      })
+      .then(res => {
+        console.log("res : ", res);
       }).catch(err => {
-        console.log(err);
+        console.log("catch : ", err);
       });
   },
 
   onSearchData: function() {
-    dbTest.collection("user")
+    dbTest.collection("club_table")
       .where({
-        name: "Jack"
+        type: 3
       }).get()
       .then(res => {
-        console.log(res);
+        console.log("res : ", res);
       }).catch(err => {
-        console.log(err);
+        console.log("catch : ", err);
       });
   },
 
   onDeleteData: function() {
-    dbTest.collection("user").doc("3b07eb945d085acb0375a44c25d13d8f")
-      .remove()
+    dbTest.collection("club_table")
+      .where({
+        type: 3
+      }).get()
       .then(res => {
         console.log(res);
+        if (!res.data || res.data.length == 0) {
+          throw Error("data is empty")
+        }
+        var item = res.data[0]
+        return dbTest.collection("club_table")
+          .doc(item._id)
+          .remove()
+      })
+      .then(res => {
+        console.log("res : ", res);
       }).catch(err => {
-        console.log(err);
+        console.log("catch : ", err);
       });
   },
 

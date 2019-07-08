@@ -2,11 +2,11 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env: 'qiyue-test-7t6yq',
+  env: 'qiyue-0haeb',
 })
 
 const db = cloud.database({
-  env: 'qiyue-test-7t6yq',
+  env: 'qiyue-0haeb',
 })
 
 // 云函数入口函数
