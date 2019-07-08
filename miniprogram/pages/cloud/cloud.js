@@ -312,6 +312,7 @@ Page({
 
   onPromiseAll: function() {
     console.log("开始执行")
+    // 组合多个Promise并等待全部执行完成
     Promise.all([1, 2, 3])
       .then(all => {
         console.log("1 : ", all)
@@ -378,6 +379,7 @@ Page({
       }, 3000)
     })
 
+    //返回最先执行完成的Promise对象
     Promise.race([p1, p2, p3])
       .then(res => {
         console.log("race : ", res)
@@ -387,6 +389,29 @@ Page({
       })
   },
 
+  onAsyncAwitCall: function() {
+    // 需要开启增强编译
+    console.log("开始执行")
+    this.getTestId()
+  },
+
+  async getTestId() {
+    try {
+      var id = await this.getIdForPromise(15)
+      console.log("id : ", id)
+    } catch (e) {
+      console.log(e)
+    }
+  },
+
+  getIdForPromise: function(id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log("获取id")
+        resolve(id)
+      }, 3000)
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

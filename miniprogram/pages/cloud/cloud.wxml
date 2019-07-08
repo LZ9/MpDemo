@@ -24,3 +24,6 @@
 <button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseThen">then调用测试</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseAll">all调用测试</button>
 <button class="buttonStyle" type="primary" size="mini" catchtap="onPromiseRace">race调用测试</button>
+
+<view class="titleStyle">async/awit</view>
+<button class="buttonStyle" type="primary" size="mini" catchtap="onAsyncAwitCall">调用测试</button>
