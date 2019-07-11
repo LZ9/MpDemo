@@ -149,44 +149,49 @@ Page({
         const tempFilePaths = res.tempFilePaths
 
         wx.cloud.uploadFile({
-          cloudPath: new Date().getTime() + ".png", // 云端路径
-          filePath: tempFilePaths[0], // 文件路径
-        }).then(res => {
-          // get resource ID
-          console.log(res.fileID)
-          dbTest.collection("image")
-            .add({
-              data: {
-                fileID: res.fileID,
-              },
-            }).then(res => {
-              console.log(res);
-            }).catch(err => {
-              console.log(err);
-            });
-        }).catch(error => {
-          // handle error
-        })
+            cloudPath: new Date().getTime() + ".png", // 云端路径
+            filePath: tempFilePaths[0], // 文件路径
+          })
+          .then(res => {
+            // get resource ID
+            console.log(res.fileID)
+            dbTest.collection("image")
+              .add({
+                data: {
+                  fileID: res.fileID,
+                },
+              }).then(res => {
+                console.log(res);
+              }).catch(err => {
+                console.log(err);
+              });
+          })
+          .catch(error => {
+            // handle error
+          })
       }
     })
   },
 
   onGetFile: function() {
     wx.cloud.callFunction({
-      name: 'login',
-    }).then(res => {
-      dbTest.collection("image").where({
-        _openid: res.result.openid
-      }).get().then(resDb => {
-        this.setData({
-          images: resDb.data
-        })
+        name: 'login',
+      })
+      .then(res => {
+        dbTest.collection("image").where({
+            _openid: res.result.openid
+          }).get()
+          .then(resDb => {
+            this.setData({
+              images: resDb.data
+            })
+
+          })
 
       })
-
-    }).catch(err => {
-      console.log(err);
-    });
+      .catch(err => {
+        console.log(err);
+      });
   },
 
   onDownloadFile: function(event) {
